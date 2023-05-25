@@ -1,6 +1,10 @@
+import { Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+
 export const App = () => {
   return (
-    <div
+    <Routes>
+    {/* <div
       style={{
         height: '100vh',
         display: 'flex',
@@ -11,6 +15,12 @@ export const App = () => {
       }}
     >
       React homework template
-    </div>
+    </div> */}
+
+    <Route path="/" element={<HomePage />} />
+
+    </Routes>
   );
 };
+
+
