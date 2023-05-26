@@ -19,7 +19,7 @@ function MoviesDetails() {
                 <Link to="Reviews">Reviews info</Link>
             </li>
         </ul>
-        {/* вставляем Outlet если нужно рендерить от родителя доп компоненты */}
+        {/* вставляем Outlet если нужно рендерить от родителя доп компоненты,в app проложили путь и тут разметку + Outlet */}
         <Outlet/>
         </>
   )
