@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Movies() {
+function Reviews() {
   return (
     <div>
-      
+      Reviews info
     </div>
   )
 }
 
-export default Movies
+export default Reviews
