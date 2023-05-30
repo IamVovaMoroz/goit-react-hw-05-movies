@@ -1,40 +1,57 @@
-
-import { useState } from 'react';
+import React from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
-function MoviesPage() {
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { getTrending } from 'services/Api';
+
+
+const MoviesPage = () => {
 // получаем масив фильмов с сервера
-  const [movies, setMovies] = useState(
-    ["movies-id-1", "movies-id-2", "movies-id-3", "movies-id-4"]
-
-  );
-
 // добавляем определение местоположения для возврата сюда
 const location = useLocation()
-
+const [movies, setMovies] = useState([]);
 // searchParams - аткуальное значение из url , setSearchParams - меняет url. Добавлением обьекта
-  const [searchParams, setSearchParams] = useSearchParams()
-
+const [searchParams, setSearchParams] = useSearchParams()
+// если нет query то пустая строка, чтобы небыло ошибки
+const query = searchParams.get("query") ?? ""
+const [isLoading, setIsLoading] = useState(false);
 
   // можно получить значение из url с помощью метода searchParams.get("a")) a - ключ, значение которого нам нужно получить послезнака вопроса
   // http://localhost:3000/goit-react-hw-05-movies/movies?a=5&b=10
   // searchParams.get("a") =>  5
-
-
 // console.log(searchParams.get("a")) 
-// console.log(setSearchParams)
-// по типу state, записываем значение movieId в const и доавляем как value input. Для сохранения значения введённого пользователем в input
+// по типу state, записываем значение Query в const и доавляем как value input. Для сохранения значения введённого пользователем в input
 
-// если нет movieId то пустая строка, чтобы небыло ошибки
-const movieId = searchParams.get("movieId") ?? ""
-console.log(movieId)
+
+console.log(query)
 // useEffect(() => {
 
 
 //   return () => {
 //    http запрос
 //   };
-// }, [movieId])
+// }, [query])
+
+
+useEffect(() => {
+
+
+  setIsLoading(true);
+
+  const response = getTrending();
+  response.then(data =>{
+
+  
+
+
+    // setMovies(data.results);
+  
+    setIsLoading(false);
+  } ).catch(error => console.log(error));
+
+}, [movies, query]);
 
 
 
@@ -44,23 +61,26 @@ const updateQueryString = evt => {
    return setSearchParams({})
   }
   
-  setSearchParams({movieId: evt.target.value})
+  setSearchParams({query: evt.target.value})
 }
 
-const visibleMovies = movies.filter( movie => movie.includes(movieId))
+// const visibleMovies = movies.filter( movie => movie.includes(query))
+
+
+
 
 
 console.log(location)
   return (
     <div>
 
-      <input type="text" value={movieId} onChange={updateQueryString} />
+      <input type="text" value={query} onChange={updateQueryString} />
 
       {/* <button onClick={()=> setSearchParams({c: "hello"})}>Change searchParams</button> */}
       
       <ul>
-      {/* {movies.map( movie => { */}
-     {visibleMovies.map( movie => {
+      {/* {movies.map( movie => { visibleMovies*/ }
+     {movies.map( movie => {
       // `${movie}` чтобы прописать путь url и для строк и цифр для получаемых. Link - активная ссылку
       return (
       <li key={movie}>

@@ -1,8 +1,10 @@
+
 import React, { useRef } from 'react'
 import { Outlet, useParams, useLocation, Link } from 'react-router-dom'
+import { Suspense } from 'react'
 
 
-function MoviesDetails() {
+function MovieDetails() {
 
    
     const location = useLocation()
@@ -30,9 +32,12 @@ console.log("location со страницы описания фильма",locat
             </li>
         </ul>
         {/* вставляем Outlet если нужно рендерить от родителя доп компоненты,в app проложили путь и тут разметку + Outlet */}
-        <Outlet/>
+
+         <Suspense fallback={<div>Loading...</div>}>
+      <Outlet />
+      </Suspense>
         </>
   )
 }
 
-export default MoviesDetails
+export default MovieDetails
