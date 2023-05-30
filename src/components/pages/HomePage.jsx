@@ -37,7 +37,7 @@ function HomePage() {
 
   return (
     <div>
-      
+      {loading && <Spinner />}
       {error && <ToastContainer />}
 
       <h2>Trending Movies</h2>

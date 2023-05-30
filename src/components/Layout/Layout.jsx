@@ -11,7 +11,7 @@ function Layout() {
     {/* <Toaster></Toaster> */}
       <Header />
       <main>
-      <Suspense fallback={<div><span class="loader"></span></div>}>
+      <Suspense fallback={<div><span className="loader"></span></div>}>
       <Outlet />
       </Suspense>
       </main>
