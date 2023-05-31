@@ -32,7 +32,7 @@ export const getMovies = async query => {
     return response.data;
   };
 
-  
+  // делати фильмв
   export async function getMovieDetails(id) {
     const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US&api_key=${API_KEY}`;
   
