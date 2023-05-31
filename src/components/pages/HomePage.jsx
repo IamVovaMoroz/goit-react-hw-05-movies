@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getTrending } from 'services/Api';
 import Spinner from 'components/Loader/Loader';
 import { Link } from 'react-router-dom';
-
+import TrendingMoviesMarkup from 'components/TrendingMoviesMarkup/TrendingMoviesMarkup';
 
 function HomePage() {
   // создаем State для ошибки, loading и для trendingMovies
@@ -41,10 +41,11 @@ function HomePage() {
       {error && <ToastContainer />}
 
       <h2>Trending Movies</h2>
+      <TrendingMoviesMarkup trendingMovies={trendingMovies}/>
       <ul>
         {trendingMovies.map((movie) => (
           <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+            <Link to={`/movies/${movie.id}`}></Link>
           </li>
         ))}
       </ul>
