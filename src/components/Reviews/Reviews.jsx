@@ -15,9 +15,9 @@ function Reviews() {
         setLoading(true);
         const { results } = await getMovieReviews(movieId);
         setReviews(results);
-        console.log(results);
+        // console.log(results);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       } finally {
         setLoading(false);
       }
