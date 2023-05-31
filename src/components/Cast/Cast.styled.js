@@ -43,12 +43,15 @@ export const CastList = styled.ul`
   padding: 0px;
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 60px;
+  
+ 
   /* justify-content: space-between; */
 `;
 
 export const CastItem = styled.li`
   width: 170px;
+  
 `;
 export const Thumb = styled.div`
   height: 255px;
@@ -66,9 +69,11 @@ export const ActorImg = styled.img`
 export const ActorName = styled.p`
   font-size: 14px;
   font-weight: 600;
+  white-space: nowrap; 
 `;
 
 export const Character = styled.p`
   font-size: 10px;
   font-weight: 400;
+  white-space: nowrap;
 `;

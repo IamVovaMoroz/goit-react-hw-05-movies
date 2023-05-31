@@ -73,11 +73,24 @@ export const getMovies = async query => {
   };
   
 
-  export const getMovieReviews = async movieId => {
-    const response = await axios.get(
-      `movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`
-    );
-    return response.data;
+  export const getMovieReviews = async (movieId) => {
+    const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews`;
+    
+    try {
+      const response = await axios.get(url, {
+        params: {
+          api_key: API_KEY,
+          language: 'en-US',
+          // page: 1,
+        },
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+     
+      return response.data;
+      
+    } catch (error) {
+      throw error;
+    }
   };
-  
- 

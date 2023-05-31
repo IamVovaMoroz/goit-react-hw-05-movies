@@ -216,7 +216,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <h2>MovieDetails: {movieId}</h2>
+      {/* <h2>MovieDetails: {movieId}</h2> */}
       <div>
       {/* <Link to="/movies">Go Back</Link> */}
       {/* Остальной код и компоненты страницы MovieDetails */}

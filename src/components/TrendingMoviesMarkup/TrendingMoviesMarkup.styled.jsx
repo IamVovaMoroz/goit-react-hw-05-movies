@@ -54,7 +54,7 @@ export const Img = styled.img`
   width: 100%;
 `;
 export const Title = styled.p`
-  font-size: 12px;
+  font-size: 17px; 
   font-weight: 900;
   line-height: 1.14;
   letter-spacing: 0.03em;

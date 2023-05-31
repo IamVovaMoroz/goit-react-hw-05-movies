@@ -44,7 +44,7 @@ export const StyledNavLink = styled(NavLink)`
 `;
 
 export const Button = styled.button`
-  font-size: 12px;
+  font-size: 16px;
   text-transform: uppercase;
   width: 70px;
   margin-top: 10px;
@@ -56,6 +56,7 @@ export const Button = styled.button`
   cursor: pointer;
   position: relative;
   transition: color 0.3s;
+  
 
   &:hover {
     color: grey;
