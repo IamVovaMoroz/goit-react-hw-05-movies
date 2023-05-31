@@ -32,7 +32,7 @@ export const getMovies = async query => {
     return response.data;
   };
 
-  // делати фильмв
+  // делати фильмов
   export async function getMovieDetails(id) {
     const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US&api_key=${API_KEY}`;
   
@@ -51,13 +51,28 @@ export const getMovies = async query => {
 
 
 
-  export const getMovieCredits = async movieId => {
-    const response = await axios.get(
-      `movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
-    );
-    return response.data;
+  export const getMovieCredits = async (movieId) => {
+    const url = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
+    
+    try {
+      const response = await axios.get(url, {
+        params: {
+          api_key: API_KEY,
+          language: 'en-US',
+        },
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+     
+      return response.data;
+      
+    } catch (error) {
+      throw error;
+    }
   };
   
+
   export const getMovieReviews = async movieId => {
     const response = await axios.get(
       `movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`

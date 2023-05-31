@@ -215,14 +215,13 @@
 
 // export default MoviesPage;
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getMovies } from 'services/Api';
 import './MoviesPage.css';
-import "../Spinner/spinner.css"
-
+import '../Spinner/spinner.css';
 
 const MoviesPage = () => {
   const location = useLocation();
@@ -230,7 +229,13 @@ const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
   const [isLoading, setIsLoading] = useState(false);
+  const [isSearchExecuted, setIsSearchExecuted] = useState(false);
 
+  useEffect(() => {
+    if (isSearchExecuted && movies.length === 0) {
+      toast.info('No movies found');
+    }
+  }, [movies.length, isSearchExecuted]);
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -247,6 +252,7 @@ const MoviesPage = () => {
 
   const searchMovies = () => {
     setIsLoading(true);
+    setIsSearchExecuted(true);
     getMovies(query)
       .then((data) => {
         setMovies(data.results);
@@ -254,9 +260,6 @@ const MoviesPage = () => {
       })
       .catch((error) => console.log(error));
   };
-
-  // Проверяем, является ли массив movies пустым
-  const isMoviesEmpty = movies.length === 0;
 
   return (
     <div>
@@ -267,8 +270,7 @@ const MoviesPage = () => {
         </button>
       </form>
       {isLoading && <div><span className="loader"></span></div>}
-      {/* если массив пустой и нет загрузки уже - выводим сообщение */}
-      {isMoviesEmpty && !isLoading && (
+      {isSearchExecuted && movies.length === 0 && !isLoading && (
         <div>No movies found</div>
       )}
       <ul>
@@ -285,4 +287,3 @@ const MoviesPage = () => {
 };
 
 export default MoviesPage;
-

@@ -51,6 +51,33 @@ export const Button = styled.button`
   padding-top: 4px;
   padding-bottom: 4px;
   border: none;
-  border-bottom: solid 3px tomato;
+  /* border-bottom: solid 3px tomato; */
   background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+
+  &:hover {
+    color: grey;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: blue;
+      bottom: -3px;
+      left: 0;
+      animation: underlineAnim 0.3s forwards;
+    }
+  }
+
+  @keyframes underlineAnim {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
 `;
