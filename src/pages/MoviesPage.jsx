@@ -48,7 +48,7 @@ const MoviesPage = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center', padding: '150px' }}>
+    <div style={{ textAlign: 'center', padding: '100px' }}>
         <form
         onSubmit={handleFormSubmit}
         style={{
@@ -93,13 +93,15 @@ const MoviesPage = () => {
         </button>
       </form>
 {/* gif */}
-      <div style={{ marginTop: '150px'  }}>
-      <img
-        src={filmGif}
-        alt="film Gif"
-        style={{ width: '880px', height: '600px' }}
-      />
-    </div>
+<div style={{ margin: '100px' }}>
+        {!isSearchExecuted && !isLoading ? (
+          <img
+            src={filmGif}
+            alt="film Gif"
+            style={{ width: '880px', height: '600px' }}
+          />
+        ) : null}
+      </div>
 
       {isLoading && <div><span className="loader"></span></div>}
       {isSearchExecuted && movies.length === 0 && !isLoading && (
