@@ -223,7 +223,23 @@ const MovieDetails = () => {
       <MovieCard movieInfo={movieInfo} />
       {/* Остальной код и компоненты страницы MovieDetails */}
     </div>
-      <Link to={backLinkLocation.current}>Go back </Link>
+    <Link
+  to={backLinkLocation.current}
+  style={{
+    display: 'inline-block',
+    padding: '15px 30px', // Increased padding for larger size
+    backgroundColor: 'rgba(0, 121, 191, 0.8)',
+    color: 'white',
+    textDecoration: 'none',
+    borderRadius: '5px',
+    fontSize: '24px', // Increased font size for larger size
+    marginTop: '20px',
+    marginRight: '30px', // Added right margin of 30px
+    textTransform: 'uppercase', // Convert text to uppercase
+  }}
+>
+  Go back
+</Link>
       <ul>
         {/* <li>
           <Link to={`${movieId}/cast`}>Cast info</Link>
