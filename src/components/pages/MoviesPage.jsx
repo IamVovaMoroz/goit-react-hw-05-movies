@@ -232,10 +232,10 @@ const MoviesPage = () => {
   const [isSearchExecuted, setIsSearchExecuted] = useState(false);
 
   useEffect(() => {
-    if (isSearchExecuted && movies.length === 0) {
+    if (isSearchExecuted && movies.length === 0 && !isLoading) {
       toast.info('No movies found');
     }
-  }, [movies.length, isSearchExecuted]);
+  }, [movies.length, isSearchExecuted, isLoading]);
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
