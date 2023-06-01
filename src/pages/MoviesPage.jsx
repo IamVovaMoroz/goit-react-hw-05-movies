@@ -5,7 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getMovies } from 'services/Api';
 import MoviesListMarkup from 'components/MoviesPageMarkup/MoviesPageMarkup';
 import "../../src/components/Spinner/spinner.css"
-import eatingPopcornGif from '../eating-popcorn.gif';
+// import eatingPopcornGif from '../eating-popcorn.gif';
+import filmGif from '../film.gif';
 // import gifPopcorn from '../gif-popcorn.gif';
 
 const MoviesPage = () => {
@@ -47,7 +48,7 @@ const MoviesPage = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center', padding: '50px' }}>
+    <div style={{ textAlign: 'center', padding: '150px' }}>
         <form
         onSubmit={handleFormSubmit}
         style={{
@@ -92,11 +93,11 @@ const MoviesPage = () => {
         </button>
       </form>
 {/* gif */}
-      <div style={{ marginTop: '150px',  }}>
+      <div style={{ marginTop: '150px'  }}>
       <img
-        src={eatingPopcornGif}
-        alt="Eating Popcorn"
-        style={{ width: '880px', height: '700px' }}
+        src={filmGif}
+        alt="film Gif"
+        style={{ width: '880px', height: '600px' }}
       />
     </div>
 
