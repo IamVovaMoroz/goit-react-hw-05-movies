@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getMovies } from 'services/Api';
 import MoviesListMarkup from 'components/MoviesPageMarkup/MoviesPageMarkup';
-import '../Spinner/spinner.css';
+import "../../src/components/Spinner/spinner.css"
 
 const MoviesPage = () => {
   const location = useLocation();
@@ -91,7 +91,9 @@ const MoviesPage = () => {
       </form>
       {isLoading && <div><span className="loader"></span></div>}
       {isSearchExecuted && movies.length === 0 && !isLoading && (
-        <div>No movies found</div>
+        <div style={{color: ' rgba(0, 121, 191, 0.8)', marginTop: '150px', fontSize: '30px', fontWeight: '800', textTransform: 'uppercase' }}>
+        No movies found
+      </div>
       )}
        {movies.length > 0 && (
         <MoviesListMarkup movies={movies} location={location} />

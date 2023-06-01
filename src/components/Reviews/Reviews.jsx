@@ -46,7 +46,7 @@ function Reviews() {
       ) : (
         <Wrapper>
           <Container>
-            <NoReviews>No reviews found</NoReviews>
+            <NoReviews >No reviews found</NoReviews>
           </Container>
         </Wrapper>
       )}

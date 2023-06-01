@@ -120,66 +120,11 @@
 
 // export default MovieDetails;
 
-// import React, { useRef, useState, useEffect } from 'react';
-// import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
-// import { Suspense } from 'react';
-// import "../Spinner/spinner.css"
-// import { getMovieDetails } from 'services/Api'
-
-// function MovieDetails() {
-//   const location = useLocation();
-//   const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
-//   const { movieId } = useParams();
-//   const [movieInfo, setMovieInfo] = useState(null);
-//   const [loading, setLoading] = useState(false);
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     const fetchMovieDetails = async () => {
-//       try {
-//         const data = await getMovieDetails(movieId);
-//         setMovieInfo(data);
-//         setLoading(false);
-//       } catch (error) {
-//         setError(error);
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchMovieDetails();
-//   }, [movieId]);
-
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
-
-//   if (error) {
-//     return <div>Error: {error.message}</div>;
-//   }
-
-//   return (
-//     <>
-//       <h2>MovieDetails: {movieId}</h2>
-//       <Link to={backLinkLocationRef.current}>Go back to movies collection</Link>
-//       <ul>
-//         <li>
-//           <Link to={`${movieId}/cast`}>Cast info</Link>
-//         </li>
-//         <li>
-//           <Link to={`${movieId}/reviews`}>Reviews info</Link>
-//         </li>
-//       </ul>
-//       <Suspense fallback={<div><span className="loader"></span></div>}>
-//         <Outlet />
-//       </Suspense>
-//     </>
-//   );
-// }
 
 import React, { useRef, useState, useEffect } from 'react';
 import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
 import { Suspense } from 'react';
-import "../Spinner/spinner.css"
+import "../../src/components/Spinner/spinner.css"
 import { getMovieDetails } from 'services/Api'
 import MovieCard from 'components/MovieCard/MovieCard';
 
@@ -228,14 +173,14 @@ const MovieDetails = () => {
     to={backLinkLocation.current}
     style={{
       display: 'inline-block',
-      padding: '15px 30px', // Increased padding for larger size
+      padding: '15px 30px', 
       backgroundColor: 'rgba(0, 121, 191, 0.8)',
       color: 'white',
       textDecoration: 'none',
       borderRadius: '5px',
-      fontSize: '24px', // Increased font size for larger size
+      fontSize: '24px', 
       marginTop: '20px',
-      textTransform: 'uppercase', // Convert text to uppercase
+      textTransform: 'uppercase', 
     }}
   >
     Go back

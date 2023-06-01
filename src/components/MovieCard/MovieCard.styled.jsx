@@ -9,11 +9,18 @@ export const MovieCardInfo = styled.div`
   padding-top: 30px;
 `;
 export const Img = styled.img`
-  width: 200px;
+  width: 300px;
   height: auto;
   object-fit: cover;
   display: block;
   margin-right: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    transform: scale(1.05);
+    
+  }
 `;
 
 export const MovieTitle = styled.h1`
@@ -46,16 +53,20 @@ export const StyledNavLink = styled(NavLink)`
 export const Button = styled.button`
   font-size: 16px;
   text-transform: uppercase;
-  width: 70px;
+  width: 90px;
   margin-top: 10px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding: 6px;
+  /* padding-top: 4px;
+  padding-bottom: 4px; */
   border: none;
-  /* border-bottom: solid 3px tomato; */
+  /* padding-right: 4px; */
+  border-radius: 5px;
   background-color: #fff;
   cursor: pointer;
   position: relative;
   transition: color 0.3s;
+  white-space: nowrap; 
+  border: 1px solid grey; 
   
 
   &:hover {
