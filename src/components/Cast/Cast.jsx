@@ -82,10 +82,3 @@ function Cast() {
 
 export default Cast
 
-// const {movieId} = useParams()
-// // console.log(`тут информа ${movieId}`)
-//   return (
-//     <div>
-//       Reviews info `тут информация отзывы по Id фильма ${movieId}`
-//     </div>
-//   )
