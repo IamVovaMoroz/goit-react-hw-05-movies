@@ -5,6 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getMovies } from 'services/Api';
 import MoviesListMarkup from 'components/MoviesPageMarkup/MoviesPageMarkup';
 import "../../src/components/Spinner/spinner.css"
+import eatingPopcornGif from '../eating-popcorn.gif';
+// import gifPopcorn from '../gif-popcorn.gif';
 
 const MoviesPage = () => {
   const location = useLocation();
@@ -89,6 +91,15 @@ const MoviesPage = () => {
           Search
         </button>
       </form>
+{/* gif */}
+      <div style={{ marginTop: '150px',  }}>
+      <img
+        src={eatingPopcornGif}
+        alt="Eating Popcorn"
+        style={{ width: '880px', height: '700px' }}
+      />
+    </div>
+
       {isLoading && <div><span className="loader"></span></div>}
       {isSearchExecuted && movies.length === 0 && !isLoading && (
         <div style={{color: ' rgba(0, 121, 191, 0.8)', marginTop: '150px', fontSize: '30px', fontWeight: '800', textTransform: 'uppercase' }}>

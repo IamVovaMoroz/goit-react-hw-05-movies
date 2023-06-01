@@ -6,49 +6,7 @@ import Spinner from 'components/Loader/Loader';
 import { Link } from 'react-router-dom';
 import TrendingMoviesMarkup from 'components/TrendingMoviesMarkup/TrendingMoviesMarkup';
 
-// const headingStyles = {
-//   fontSize: '48px',
-//   fontWeight: 'bold',
-//   textAlign: 'center',
-//   marginTop: '20px',
-//   color: "rgba(0, 121, 191, 0.8)",
-// };
-// const headingStyles = {
-//   fontSize: '48px',
-//   fontWeight: 'bold',
-//   textAlign: 'center',
-//   marginTop: '20px',
-//   animation: 'colorShift 3s infinite',
-// };
 
-// // CSS keyframes
-// const keyframes = `
-//   @keyframes colorShift {
-//     0% { color: rgba(0, 121, 191, 0.8); }
-//     50% { color: rgba(0, 186, 255, 0.8); }
-//     100% { color: rgba(0, 121, 191, 0.8); }
-//   }
-// `;
-
-// const headingStyles = {
-//   fontSize: '48px',
-//   fontWeight: 'bold',
-//   textAlign: 'center',
-//   marginTop: '60px',
-//   textTransform: 'uppercase',
-//   animation: 'colorShift 9s infinite',
-// };
-
-// // CSS keyframes
-// const keyframes = `
-//   @keyframes colorShift {
-//     0% { color: rgba(0, 121, 191, 0.8); }
-//     25% { color: rgba(0, 186, 255, 0.8); }
-//     50% { color: rgba(24, 98, 19, 0.8); }
-//     75% { color: rgba(0, 186, 145, 0.8); }
-//     100% { color: rgba(0, 121, 191, 0.8); }
-//   }
-// `;
 
 const headingStyles = {
   fontSize: '48px',
