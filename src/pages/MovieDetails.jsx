@@ -40,42 +40,30 @@ const MovieDetails = () => {
 
   return (
     <>
-      {/* <h2>MovieDetails: {movieId}</h2> */}
-      <div>
-      {/* <Link to="/movies">Go Back</Link> */}
-      {/* Остальной код и компоненты страницы MovieDetails */}
-      <MovieCard movieInfo={movieInfo} />
-      {/* Остальной код и компоненты страницы MovieDetails */}
-    </div>
-    <div style={{ display: 'flex', justifyContent: 'flex-start', marginLeft: '30px' }}>
-  <Link
-    to={backLinkLocation.current}
-    style={{
-      display: 'inline-block',
-      padding: '15px 30px', 
-      backgroundColor: 'rgba(0, 121, 191, 0.8)',
-      color: 'white',
-      textDecoration: 'none',
-      borderRadius: '5px',
-      fontSize: '24px', 
-      marginTop: '20px',
-      textTransform: 'uppercase', 
-    }}
-  >
-    Go back
-  </Link>
-</div>
-      <ul>
-        {/* <li>
-          <Link to={`${movieId}/cast`}>Cast info</Link>
-        </li>
-        <li>
-          <Link to={`${movieId}/reviews`}>Reviews info</Link>
-        </li> */}
-      </ul>
       <Suspense fallback={<div><span className="loader"></span></div>}>
         <Outlet />
       </Suspense>
+      <div>
+        <MovieCard movieInfo={movieInfo} />
+        <div style={{ display: 'flex', justifyContent: 'flex-start', marginLeft: '30px' }}>
+          <Link
+            to={backLinkLocation.current}
+            style={{
+              display: 'inline-block',
+              padding: '15px 30px', 
+              backgroundColor: 'rgba(0, 121, 191, 0.8)',
+              color: 'white',
+              textDecoration: 'none',
+              borderRadius: '5px',
+              fontSize: '24px', 
+              marginTop: '20px',
+              textTransform: 'uppercase', 
+            }}
+          >
+            Go back
+          </Link>
+        </div>
+      </div>
     </>
   );
 }
