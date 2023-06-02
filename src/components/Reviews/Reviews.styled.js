@@ -101,6 +101,9 @@ export const NoReviews = styled.p`
   margin-top: 200px;
   margin-left: 400px;
 `;
+
+
+
 export const Wrapper = styled.div`
   border-radius: 10px;
 `;

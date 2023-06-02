@@ -6,9 +6,9 @@ export const FooterContainer = styled.footer`
  /* position: fixed; */
   bottom: 0;
   left: 0;
-  width: 100%;
+
   background-color: rgba(43, 178, 180, 0.421);
-  margin-top: 250px;
+  margin-top: 50px;
   padding: 20px;
   text-align: center;
  

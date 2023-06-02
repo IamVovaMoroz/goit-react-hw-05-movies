@@ -57,23 +57,29 @@ const MoviesPage = () => {
           justifyContent: 'center',
         }}
       >
-        <input
-          type="text"
-          value={query}
-          onChange={updateQueryString}
-          placeholder="Search movie"
-          style={{
-            padding: '10px',
-            marginRight: '10px',
-          
-            border: '1px solid #ccc',
-            borderRadius: '5px',
-            fontSize: '26px',
-            outline: 'none',
-            transition: 'border-color 0.3s',
-          }}
-          className={query ? 'input-active' : ''}
-        />
+     
+
+       <label style={{ display: 'flex', alignItems: 'center' }}>
+ 
+  <input
+    type="text"
+    value={query}
+    onChange={updateQueryString}
+    placeholder="Search movie"
+    style={{
+      padding: '10px',
+      marginRight: '10px',
+      border: '1px solid #ccc',
+      borderRadius: '5px',
+      fontSize: '26px',
+      outline: 'none',
+      transition: 'border-color 0.3s',
+      boxShadow: query ? '0 0 5px rgba(0, 121, 191, 0.8)' : 'none',
+    }}
+    className={query ? 'input-active' : ''}
+  />
+</label>
+
         <button
           className="button"
           type="submit"
@@ -112,6 +118,7 @@ const MoviesPage = () => {
        {movies.length > 0 && (
         <MoviesListMarkup movies={movies} location={location} />
       )}
+      
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
