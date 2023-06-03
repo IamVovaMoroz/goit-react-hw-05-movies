@@ -12,7 +12,7 @@ const MovieDetails = () => {
   const backLinkLocation = useRef(location.state?.from ?? '/movies');
   const { movieId } = useParams();
   const [movieInfo, setMovieInfo] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -40,10 +40,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Suspense fallback={<div><span className="loader"></span></div>}>
-        <Outlet />
-      </Suspense>
-      <div>
+      <div> {/* Изменение: Оберните MovieCard и кнопку Go back в div */}
         <MovieCard movieInfo={movieInfo} />
         <div style={{ display: 'flex', justifyContent: 'flex-start', marginLeft: '30px' }}>
           <Link
@@ -64,11 +61,21 @@ const MovieDetails = () => {
           </Link>
         </div>
       </div>
+      <Suspense fallback={<div><span className="loader"></span></div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
-}
+};
 
 export default MovieDetails;
+
+
+
+
+
+
+
 
 
 
