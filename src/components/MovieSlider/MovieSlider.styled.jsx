@@ -36,7 +36,8 @@ export const StyledLink = styled(Link)`
 
 export const Img = styled.img`
   width: 200px;
-  height: auto;
+  height: 300px;
+  /* height: auto; */
   vertical-align: top; /* Добавлено свойство для убирания отступа снизу */
 `;
 
@@ -94,3 +95,4 @@ export const Title = styled.p`
   margin: 0;
   background-color: rgba(43, 178, 180, 0.421);
 `;
+

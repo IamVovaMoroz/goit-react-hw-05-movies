@@ -8,6 +8,7 @@ import TrendingMoviesMarkup from 'components/TrendingMoviesMarkup/TrendingMovies
 import MovieSlider from 'components/MovieSlider/MovieSlider';
 
 
+
 const headingStyles = {
   fontSize: '48px',
   fontWeight: 'bold',
@@ -65,8 +66,9 @@ function HomePage() {
       {loading && <Spinner />}
       {error && <ToastContainer />}
       <style>{keyframes}</style>
-      <h2 style={headingStyles}>Trending Movies</h2>
+      <h2 style={headingStyles}>Top Rated</h2>
       <MovieSlider movies={trendingMovies} /> {/* Вставляем компонент MovieSlider с данными из trendingMovies */}
+      <h2 style={headingStyles}>Trending Movies</h2>
       <TrendingMoviesMarkup trendingMovies={trendingMovies} />
       <ul>
 

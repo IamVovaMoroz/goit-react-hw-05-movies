@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { getTrendingTV } from 'services/Api';
 import {
   Wrapper,
   Movies,
@@ -15,15 +16,29 @@ import {
 } from './MovieSlider.styled';
 import noImage from '../../NoImage.jpg';
 
-const MovieSlider = ({ movies = [] }) => {
-  const location = useLocation();
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const sliderRef = useRef(null);
-  const slideWidth = 200; // Ширина каждого слайда (в пикселях)
-  const slideCount = movies.length; // Общее количество слайдов
-  const emptySlideOffset = 100; // Отступ для пустого слайда (в пикселях)
+const MovieSlider = () => {
+    const location = useLocation();
+    const [movies, setMovies] = useState([]);
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const sliderRef = useRef(null);
+    const slideWidth = 200;
+    const slideCount = movies.length;
+    const emptySlideOffset = 100;
+  
+    const duplicatedMovies = [...movies, ...movies];
 
-  const duplicatedMovies = [...movies, ...movies];
+  useEffect(() => {
+    const fetchTrendingTV = async () => {
+      try {
+        const trendingTVMovies = await getTrendingTV(); // Используем новую функцию getTrendingTV
+        setMovies(trendingTVMovies.results);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchTrendingTV();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -76,7 +91,7 @@ const MovieSlider = ({ movies = [] }) => {
                       alt="preview"
                     />
                   ) : (
-                    <Img src={noImage} alt="No Image Available" />
+                    <Img className="slider-image" src={noImage} alt="No Image Available" />
                   )}
                 </Thumb>
                 {(movie.title || movie.name) && (

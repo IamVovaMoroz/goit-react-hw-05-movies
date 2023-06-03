@@ -9,12 +9,13 @@ const axiosInstance = axios.create({
   },
 });
 
-export const getTrending = async () => {
+export const getTrending = async (page = 1) => {
   try {
     const response = await axiosInstance.get('/trending/movie/day', {
       params: {
         api_key: API_KEY,
         language: 'en-US',
+        page: page,
       },
     });
     return response.data;
@@ -71,6 +72,20 @@ export const getMovieCredits = async (movieId) => {
 export const getMovieReviews = async (movieId) => {
   try {
     const response = await axiosInstance.get(`/movie/${movieId}/reviews`, {
+      params: {
+        api_key: API_KEY,
+        language: 'en-US',
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getTrendingTV = async () => {
+  try {
+    const response = await axiosInstance.get('/trending/tv/day', {
       params: {
         api_key: API_KEY,
         language: 'en-US',
