@@ -1,8 +1,8 @@
-
+// App.jsx
 import { Routes, Route } from "react-router-dom";
 import { lazy } from "react";
 import { Navigate } from "react-router-dom";
-
+import ContactPage from "./../pages/ContactPage";
 
 
 // import HomePage from "./pages/HomePage"; Использование lazy с import позволяет отложить загрузку компонента HomePage до момента его фактического использования.  мы используем функцию lazy из React для динамической загрузки компонента HomePage. Это применяется вместе с механизмом код-разделения (code splitting) в React приложениях.
@@ -24,6 +24,7 @@ export const App = () => {
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
+        <Route path="contact" element={<ContactPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>

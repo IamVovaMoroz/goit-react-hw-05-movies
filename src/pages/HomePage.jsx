@@ -69,11 +69,18 @@ function HomePage() {
       <MovieSlider movies={trendingMovies} /> {/* Вставляем компонент MovieSlider с данными из trendingMovies */}
       <TrendingMoviesMarkup trendingMovies={trendingMovies} />
       <ul>
-        {trendingMovies.map((movie) => (
+
+        {/* {trendingMovies.map((movie) => (
           <li key={movie.id}>
             <Link to={`/movies/${movie.id}`}></Link>
           </li>
-        ))}
+        ))} */}
+{trendingMovies.map((movie) => (
+  <li key={movie.id}>
+    <Link to={`/movies/${movie.id}`}></Link>
+  </li>
+))}
+
       </ul>
     </div>
   );
