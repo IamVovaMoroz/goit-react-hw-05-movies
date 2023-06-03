@@ -5,7 +5,7 @@ import { getTrending } from 'services/Api';
 import Spinner from 'components/Loader/Loader';
 import { Link } from 'react-router-dom';
 import TrendingMoviesMarkup from 'components/TrendingMoviesMarkup/TrendingMoviesMarkup';
-
+import MovieSlider from 'components/MovieSlider/MovieSlider';
 
 
 const headingStyles = {
@@ -66,7 +66,8 @@ function HomePage() {
       {error && <ToastContainer />}
       <style>{keyframes}</style>
       <h2 style={headingStyles}>Trending Movies</h2>
-      <TrendingMoviesMarkup trendingMovies={trendingMovies}/>
+      <MovieSlider movies={trendingMovies} /> {/* Вставляем компонент MovieSlider с данными из trendingMovies */}
+      <TrendingMoviesMarkup trendingMovies={trendingMovies} />
       <ul>
         {trendingMovies.map((movie) => (
           <li key={movie.id}>
