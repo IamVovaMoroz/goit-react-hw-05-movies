@@ -108,7 +108,7 @@ const MovieSlider = ({ movies = [] }) => {
     return () => clearInterval(interval);
   }, [slideCount]);
 
-  const duplicatedMovies = [...movies, ...movies];
+  
 
   useEffect(() => {
     if (sliderRef.current) {
@@ -142,7 +142,7 @@ const MovieSlider = ({ movies = [] }) => {
           <LeftArrow />
         </Arrow>
         <Ul ref={sliderRef}>
-          {duplicatedMovies.map((movie, index) => (
+          {movies.map((movie, index) => (
             <Li key={movie.id}>
               <StyledLink to={`/movies/${movie.id}`} state={{ from: location }}>
                 <Thumb>

@@ -1,4 +1,4 @@
-// import styled, { keyframes } from 'styled-components';
+
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -44,10 +44,7 @@ export const Thumb = styled.div`
   position: relative;
 `;
 
-// export const Title = styled.h3`
-//   font-size: 16px;
-//   margin-top: 5px;
-// `;
+
 
 export const Arrow = styled.div`
   position: absolute;
