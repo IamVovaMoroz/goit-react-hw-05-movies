@@ -21,6 +21,9 @@ const MovieSlider = ({ movies = [] }) => {
   const sliderRef = useRef(null);
   const slideWidth = 200; // Ширина каждого слайда (в пикселях)
   const slideCount = movies.length; // Общее количество слайдов
+  const emptySlideOffset = 100; // Отступ для пустого слайда (в пикселях)
+
+  const duplicatedMovies = [...movies, ...movies];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,14 +42,14 @@ const MovieSlider = ({ movies = [] }) => {
         setTimeout(() => {
           sliderRef.current.style.transition = 'none';
           setCurrentSlide(0);
-          sliderRef.current.style.transform = `translateX(0)`;
+          sliderRef.current.style.transform = `translateX(-${emptySlideOffset}px)`;
           setTimeout(() => {
             sliderRef.current.style.transition = 'transform 1s ease-in-out';
           }, 0);
         }, 1000);
       }
     }
-  }, [currentSlide, slideCount, slideWidth]);
+  }, [currentSlide, slideCount, slideWidth, emptySlideOffset]);
 
   const handlePrevSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide - 1 + slideCount) % slideCount);
@@ -63,8 +66,8 @@ const MovieSlider = ({ movies = [] }) => {
           <LeftArrow />
         </Arrow>
         <Ul ref={sliderRef}>
-          {movies.map((movie, index) => (
-            <Li key={movie.id}>
+          {duplicatedMovies.map((movie, index) => (
+            <Li key={`${movie.id}_${index}`}>
               <StyledLink to={`/movies/${movie.id}`} state={{ from: location }}>
                 <Thumb>
                   {movie.poster_path ? (
