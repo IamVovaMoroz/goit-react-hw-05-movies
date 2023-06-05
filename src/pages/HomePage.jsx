@@ -6,6 +6,7 @@ import Spinner from 'components/Loader/Loader';
 import { Link } from 'react-router-dom';
 import TrendingMoviesMarkup from 'components/TrendingMoviesMarkup/TrendingMoviesMarkup';
 import MovieSlider from 'components/MovieSlider/MovieSlider';
+// import TrendingMovies from 'components/moviesByDate/moviesByDate';
 
 
 
@@ -66,6 +67,7 @@ function HomePage() {
       {loading && <Spinner />}
       {error && <ToastContainer />}
       <style>{keyframes}</style>
+      {/* <TrendingMovies year={2023} /> */}
       <h2 style={headingStyles}>Top Rated</h2>
       <MovieSlider movies={trendingMovies} /> {/* Вставляем компонент MovieSlider с данными из trendingMovies */}
       <h2 style={headingStyles}>Trending Movies</h2>
