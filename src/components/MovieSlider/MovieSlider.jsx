@@ -30,7 +30,7 @@ const MovieSlider = () => {
   useEffect(() => {
     const fetchTrendingTV = async () => {
       try {
-        const trendingTVMovies = await getTrendingTV(); // Используем новую функцию getTrendingTV
+        const trendingTVMovies = await getTrendingTV(); // Используем новую функцию getTrendingTV.
         setMovies(trendingTVMovies.results);
       } catch (error) {
         console.error(error);
